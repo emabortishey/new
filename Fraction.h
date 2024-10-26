@@ -7,10 +7,14 @@ class Fraction
 private:
 	int num, den;
 public:
+	// конструкторы
+
 	Fraction() : Fraction(1, 2) {}
-	Fraction (int num_P) : Fraction(num_P, num_P*2) {}
+	explicit Fraction (int num_P) : Fraction(num_P, num_P*2) {}
 	Fraction (int num_P, int den_P) : num{num_P}, den{den_P} {}
 	Fraction (const Fraction& obj) : num{obj.num}, den {obj.den} {}
+
+	// модификаторы
 
 	void set_num(int num1)
 	{
@@ -29,11 +33,13 @@ public:
 		return den;
 	}
 
+	// аксессоры
 	void sum(int sumn, int sumd);
 	void sub(int subn, int subd);
 	void div(int divn, int divd);
 	void mult(int multn, int multd);
 
+	// перегрузки оператором
 	Fraction& operator+(Fraction& obj2)
 	{
 		if (den != obj2.den)
